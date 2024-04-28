@@ -1,6 +1,6 @@
-# hello_world
+# PokeAPI IOS test
 
-A new Flutter project.
+A new Flutter project to introduce myself into the IOS development.
 
 ## Getting Started
 
