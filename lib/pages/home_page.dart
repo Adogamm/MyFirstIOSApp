@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/utils/responsive.dart';
 import 'package:hello_world/widgets/circle.dart';
 import 'package:hello_world/widgets/icon_container.dart';
 
@@ -12,10 +13,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-
+    final Responsive responsive = Responsive.of(context);
     final Size size = MediaQuery.of(context).size;
-    final double pinkSize = size.width*0.9;
-    final double orangeSize = size.width*0.7;
+    final double pinkSize = responsive.wp(90);
+    final double orangeSize = responsive.wp(70);
 
     return Scaffold(
       body: Container(
@@ -49,9 +50,22 @@ class _HomePageState extends State<HomePage> {
               ),
               Positioned(
                 top: pinkSize*0.4,
-                child: IconContainer(
-                  size: size.width * 0.28,
-                ))
+              child: Column(children: <Widget>[
+                IconContainer(
+                  size: responsive.wp(28),
+                ),
+                SizedBox(
+                  height: responsive.dp(3),
+                ),
+                Text("Welcome to the\n Pokemon world!",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: responsive.dp(2),
+                  fontWeight: FontWeight.bold,
+                  ),
+                )
+              ]),
+            ),
           ],
         ),
       ),
